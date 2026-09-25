@@ -1,0 +1,11 @@
+{
+  "title": "Modernización de una plataforma transaccional",
+  "audience": "Comité de tecnología",
+  "slides": [
+    {"type":"cover","title":"La plataforma separa el canal, el procesamiento y los datos","subtitle":"Ejemplo ficticio · Architecture review"},
+    {"type":"summary","title":"Tres decisiones reducen el acoplamiento operativo","items":[{"heading":"Entrada protegida","body":"La capa de borde autentica y limita el tráfico antes del cómputo."},{"heading":"Procesamiento desacoplado","body":"Una cola absorbe los picos y permite reintentos controlados."},{"heading":"Datos con dueño claro","body":"Cada servicio es responsable de sus escrituras y métricas."}],"source":"Ejemplo ilustrativo; sin datos de producción"},
+    {"type":"architecture","title":"La cola desacopla la API del trabajo diferido","zones":[{"name":"Canales","nodes":[{"id":"web","label":"Web"},{"id":"mobile","label":"Móvil"}]},{"name":"Borde","nodes":[{"id":"edge","label":"WAF + API"}]},{"name":"Servicios","nodes":[{"id":"api","label":"Servicio API"},{"id":"worker","label":"Worker"}]},{"name":"Datos","nodes":[{"id":"db","label":"Base de datos"},{"id":"queue","label":"Cola"}]}],"flows":[{"from":"web","to":"edge"},{"from":"mobile","to":"edge"},{"from":"edge","to":"api"},{"from":"api","to":"db"},{"from":"api","to":"queue","async":true},{"from":"queue","to":"worker","async":true}],"source":"Arquitectura ilustrativa; validar dependencias reales"},
+    {"type":"comparison","title":"Cada patrón resuelve una necesidad distinta","columns":[{"heading":"Síncrono","items":["Respuesta inmediata al cliente","Tiempo de espera acotado","Errores visibles al solicitante"]},{"heading":"Asíncrono","items":["Absorción de picos de tráfico","Reintentos y trazabilidad","Procesamiento independiente del canal"]}]},
+    {"type":"roadmap","title":"La migración puede avanzar en tres entregas","steps":[{"name":"1 · Inventario","detail":"Contratos, dependencias y línea base"},{"name":"2 · Piloto","detail":"Una ruta de tráfico y métricas de negocio"},{"name":"3 · Escala","detail":"Rollout gradual y plan de reversión"}],"source":"Secuencia ilustrativa, sujeta a evaluación técnica"}
+  ]
+}
