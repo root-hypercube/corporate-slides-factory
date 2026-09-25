@@ -1,0 +1,7 @@
+{
+  "name": "Example brand — replace with approved corporate values",
+  "colors": {"navy": "142D4E", "accent": "008C83", "light": "EAF5F3", "text": "243747", "muted": "647789", "white": "FFFFFF", "line": "C9D6DE"},
+  "fonts": {"head": "Aptos Display", "body": "Aptos"},
+  "footer": "INTERNAL · Example content",
+  "logo": null
+}
