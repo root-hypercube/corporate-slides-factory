@@ -1,0 +1,14 @@
+{
+  "name": "corporate-slides-factory",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "demo": "node scripts/build.mjs examples/architecture.json output/demo.pptx",
+    "qa": "python3 scripts/qa.py output/demo.pptx"
+  },
+  "dependencies": {
+    "pptxgenjs": "4.0.1"
+  }
+}

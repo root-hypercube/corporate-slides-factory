@@ -1,0 +1,10 @@
+node_modules/
+output/*
+!output/.gitkeep
+references/private/*
+!references/private/.gitkeep
+.DS_Store
+__pycache__/
+*.pyc
+
+node_modules
